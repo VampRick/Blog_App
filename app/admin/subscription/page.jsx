@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-function page() {
+function Page() {
     const d = new Date();
     let[mail,setMail]=useState([]);
     const fetching=async()=> {
@@ -11,6 +11,7 @@ function page() {
         console.log(res.data.data) ;       
     }
     async function del(id) {
+        try{
         const deem=await axios.delete("/api/email",{
             params:{
                 ok:id
@@ -18,6 +19,10 @@ function page() {
         })
         fetching();
         alert("Email deleted")
+    }catch(e){
+        console.log(e);
+        
+    }
         
     }
     const dateFormat=(d)=>{
@@ -67,4 +72,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

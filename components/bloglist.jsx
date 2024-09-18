@@ -7,10 +7,14 @@ function Bloglist() {
     let[menu,setmenu]=useState("All");
     let[blogs,setblogs]=useState([]);
     async function fetchBlog() {
-        
+        try{
         const res=await axios.get("/api/blogs");
         setblogs(res.data.blogs);
         console.log(res.data.blogs);
+        }catch{
+            console.log("Error");
+            
+        }
     }
     useEffect(()=>{
         fetchBlog()

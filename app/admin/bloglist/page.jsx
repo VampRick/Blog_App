@@ -2,12 +2,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-function page() {
+function Page() {
     let[list,setList]=useState([]);
     const fetching=async()=>{
+        try{
         let res=await axios.get("/api/blogs");
         setList(res.data.blogs);
          console.log(res.data.blogs);
+        }catch(e){
+            console.log(e);
+            
+        }
     }
     const dateFormat=(d)=>{
         const date=new Date(d);
@@ -21,14 +26,19 @@ function page() {
         return dd + '/' + mm + '/' + yyyy;
     }
     const del=async(mid)=>{
+        try{
         const data= await axios.delete("/api/blogs",{
             params:{
                 id:mid
             }
-        }).catch((error)=>console.error(error));
+        });
         
         fetching();
         alert("Blog Deleted");
+    }catch(e){
+        console.log(e);
+        
+    }
     }
     useEffect(()=>{
         fetching();
@@ -65,4 +75,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

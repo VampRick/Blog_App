@@ -33,7 +33,7 @@ function Header() {
         <div>
             <div className='text-center my-10'>
             <h1 className='text-3xl font-semibold'>Latest Blogs</h1>
-            <p className='text-xl max-w-[800px] mt-5 m-auto'>Hello, welcome to our Blog App called <span className='font-bold text-3xl'>blogger</span>. Here you can see all types of latest blogs on every tpics such as Lifestyle, Travel, Technology etc. </p>
+            <p className='text-xl max-w-[800px] mt-5 m-auto'>Hello, Welcome to our Blog App called <span className='font-bold text-3xl'>blogger</span>. Here you can see all types of latest blogs on every tpics such as Lifestyle, Travel, Technology etc. </p>
             <form onSubmit={notload} className='mt-6 ml-80 flex items-center justify-evenly shadow-[-7px_7px_0px_#000000] border border-2 border-black rounded max-w-[400px]'>
                 <input className='p-2 outline-none'
                 type='email'
